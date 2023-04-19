@@ -39,6 +39,6 @@ def shell(update, context):
         message.reply_text('No Reply', parse_mode='Markdown')
 
 
-SHELL_HANDLER = CommandHandler(BotCommands.ShellCommand, shell,
+filters=CustomFilters.owner_filter | CustomFilters.authorized_chat | CustomFilters.authorized_user
                                 filters=CustomFilters.owner_filter)
 dispatcher.add_handler(SHELL_HANDLER)
